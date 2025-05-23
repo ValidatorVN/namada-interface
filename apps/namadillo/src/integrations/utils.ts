@@ -43,26 +43,9 @@ export const findAssetByDenom = (denom: string): Asset | undefined => {
   return undefined;
 };
 
-const getSvgOrPng = (image?: {
-  svg?: string;
-  png?: string;
-}): string | undefined => {
-  return image?.svg || image?.png;
-};
-
-export const getChainImageUrl = (chain?: Chain): string => {
-  if (!chain) return tokenImage;
-  return (
-    getSvgOrPng(chain.images?.find((i) => i.theme?.circle)) ||
-    getSvgOrPng(chain.images?.[0]) ||
-    getSvgOrPng(chain.logo_URIs) ||
-    tokenImage
-  );
-};
-
 export const getAssetImageUrl = (asset?: Asset): string => {
   if (!asset) return tokenImage;
-  return getSvgOrPng(asset.logo_URIs) || tokenImage;
+  return asset.logo_URIs?.svg || asset.logo_URIs?.png || tokenImage;
 };
 
 export const getIbcGasConfig = (

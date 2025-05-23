@@ -124,7 +124,7 @@ export const SettingsMain = (): JSX.Element => {
         <div>
           SDK Version:{" "}
           <a
-            href="https://www.npmjs.com/package/@namada/sdk"
+            href="https://docs.namada.net/integrating-with-namada/sdk"
             target="_blank"
             rel="noreferrer"
             className="underline"
